@@ -6,3 +6,5 @@ fin.html
 
 acceptance_tests/*.html
 acceptance_tests/*.xml
+acceptance_tests/*.log
+acceptance_tests/*.png
