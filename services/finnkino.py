@@ -12,36 +12,36 @@ class FinnKinoXML(object):
 
 
     def get_area_codes(self):
-		r = requests.get(self.area_url, headers=self.headers)
-		root = ET.fromstring(r.content)
-		areas = root.findall("TheatreArea")
-		self._parse_areas(areas)
-		return self.areas
+        r = requests.get(self.area_url, headers=self.headers)
+        root = ET.fromstring(r.content)
+        areas = root.findall("TheatreArea")
+        self._parse_areas(areas)
+        return self.areas
 
 
     def _parse_areas(self, areas):
-		for area in areas:
-			id = area.find('ID').text
-			name = area.find('Name').text
-			self.areas[id] = name
+        for area in areas:
+            id = area.find('ID').text
+            name = area.find('Name').text
+            self.areas[id] = name
 
     def get_movies_from_area(self, area_code):
-    	url = "{}?area={}".format(self.schedule_url, area_code)
-    	r = requests.get(url, headers=self.headers)
-    	root = ET.fromstring(r.content)
-    	shows = root.find('Shows').findall('Show')
-    	return self._parse_shows(shows)
+        url = "{}?area={}".format(self.schedule_url, area_code)
+        r = requests.get(url, headers=self.headers)
+        root = ET.fromstring(r.content)
+        shows = root.find('Shows').findall('Show')
+        return self._parse_shows(shows)
 
     def _parse_shows(self, shows):
-    	movies = {}
-    	for show in shows:
-    		event_id = show.find('EventID').text
-    		title = show.find('Title').text
-    		rating = show.find('RatingImageUrl').text
-    		genres = show.find('Genres').text.split(",")
-    		movies[event_id] = {
-    		    "title": title,
-    		    "rating": rating,
-    		    "genres": genres
-    		}
-    	return movies
+        movies = {}
+        for show in shows:
+            event_id = show.find('EventID').text
+            title = show.find('Title').text
+            rating = show.find('RatingImageUrl').text
+            genres = show.find('Genres').text.split(",")
+            movies[event_id] = {
+                "title": title,
+                "rating": rating,
+                "genres": genres
+            }
+        return movies
