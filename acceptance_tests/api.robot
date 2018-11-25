@@ -1,5 +1,5 @@
 *** Settings ***
-Library    Selenium2Library
+Library    SeleniumLibrary
 Library    RequestsLibrary
 Library    lib/XMLParserLib.py
 Suite Setup    Get Movie And Open Browser
@@ -13,13 +13,8 @@ ${FINNKINO_SCHEDULE}=    finnkino
 *** Test Cases ***
 
 Check That Movie Is Found From Correct Area
-	Ensure That Loader Gif Is Disabled
 	Select 3rd Area From List
-	Ensure That Loader Gif Is Enabled
-	Ensure That Loader Gif Is Disabled
     Choose Lappeenranta From Area List
-    Ensure That Loader Gif Is Enabled
-	Ensure That Loader Gif Is Disabled
 	Page Should Contain    ${MOVIE_TITLE}
 
 

@@ -19,9 +19,10 @@ pylint==1.7.2
 requests==2.9.1
 robotframework==3.0.2
 robotframework-requests==0.4.7
-robotframework-selenium2library==1.8.0
-selenium==3.6.0
+robotframework-seleniumlibrary==3.2.0
+selenium==3.141.0
 singledispatch==3.4.0.3
 six==1.11.0
+urllib3==1.24.1
 Werkzeug==0.12.2
 wrapt==1.10.11
