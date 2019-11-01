@@ -14,4 +14,4 @@ class XMLParserLib(object):
     		event_id = show.find("EventID").text
     		title = show.find("Title").text
     		movies[event_id] = title
-    	return movies[movies.keys()[movie_index]]
+    	return movies[list(movies.keys())[movie_index]]

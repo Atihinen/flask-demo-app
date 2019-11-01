@@ -13,10 +13,8 @@ ${FINNKINO_SCHEDULE}=    finnkino
 *** Test Cases ***
 
 Check That Movie Is Found From Correct Area
-	Select 3rd Area From List
     Choose Lappeenranta From Area List
-	Page Should Contain    ${MOVIE_TITLE}
-
+	Verify That Correct Movie Is Found
 
 *** Keywords ***
 
@@ -33,8 +31,9 @@ Ensure That Loader Gif Is Disabled
 Ensure That Loader Gif Is Enabled
 	Wait Until Element Is Visible    id=loader    10
 
-Select 3rd Area From List
-	Select From List By Index    id=choose_theatre    2
-
 Choose Lappeenranta From Area List
 	Select From List By Value    id=choose_theatre    1041
+
+Verify That Correct Movie Is Found
+	[Documentation]    MOVIE_TITLE variable is defined in suite setup
+	Wait Until Keyword Succeeds    3x    2s    Page Should Contain    ${MOVIE_TITLE}

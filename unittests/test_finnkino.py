@@ -24,10 +24,10 @@ class TestFinnKinoXML(unittest.TestCase):
 		res = self.finnkinoXml.get_movies_from_area("1012")
 		self.assertTrue(isinstance(res, dict))
 		self.assertEqual(len(res), 1)
-		movie = res[res.keys()[0]]
-		self.assertTrue(movie.has_key("title"))
-		self.assertTrue(movie.has_key("rating"))
-		self.assertTrue(movie.has_key("genres"))
+		movie = res[list(res.keys())[0]]
+		self.assertTrue("title" in movie)
+		self.assertTrue("rating" in movie)
+		self.assertTrue("genres" in movie)
 		self.assertEqual(movie["title"], "Lumotut")
 		self.assertEqual(movie["rating"], 'https://media.finnkino.fi/images/rating_large_12.png')
 		self.assertTrue(isinstance(movie["genres"], list))
