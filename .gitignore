@@ -1,6 +1,7 @@
 *.pyc
 fk
 fin.html
+.coverage
 
 #robotframework
 
@@ -8,3 +9,4 @@ acceptance_tests/*.html
 acceptance_tests/*.xml
 acceptance_tests/*.log
 acceptance_tests/*.png
+
