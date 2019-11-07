@@ -1,6 +1,16 @@
 # flask-demo-app
 Flask based application that uses FinnKino and Leffatykki API
 
+[![Build Status](https://travis-ci.org/Atihinen/flask-demo-app.svg?branch=master)](https://travis-ci.org/Atihinen/flask-demo-app)
+
+# Requirements
+
+* python 3
+* pip for python 3
+* chrome or firefox
+  * chromedriver for chrome
+  * geckodriver for firefox
+
 # Installation
 
 * `git clone <this repo>`
